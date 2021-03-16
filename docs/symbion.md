@@ -56,13 +56,13 @@ The way we synchronize the concrete process inside angr is customizable by 2 sta
 * **SYMBION_SYNC_CLE**: this option controls the synchronization of the memory mapping of the program inside angr. When the project is created, the memory mapping inside angr is different from the one inside the concrete process (this will change as soon as Symbion will be fully compatible with archr). If you want the process mapping to be fully synchronized with the one of the concrete process, set this option to the SimState before initializing the SimulationManager (Note that this is going to happen at the first synchronization of the concrete process inside angr, NOT before)
 ```python
 entry_state.options.add(angr.options.SYMBION_SYNC_CLE)
-simgr = project.factory.simgr(state)
+simgr = project.factory.simgr(entry_state)
 ```
 
 * **SYMBION_KEEP_STUBS_ON_SYNC**: this option controls how we re-hook external functions with SimProcedures. If the project has been initialized to use SimProcedures (use_sim_procedures=True), we are going to re-hook external functions with SimProcedures (if we have that particular implementation) or with a generic stub. If you want to execute SimProcedures just for functions for which we have an available implementation and the real code for the ones we have not, set this option to the SimState before initializing the SimulationManager.
 ```python
 entry_state.options.add(angr.options.SYMBION_KEEP_STUBS_ON_SYNC)
-simgr = project.factory.simgr(state)
+simgr = project.factory.simgr(entry_state)
 ```
 ##Example
 You can find more information about this technique and a complete example in our blog post: https://angr.io/blog/angr_symbion/.
