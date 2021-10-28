@@ -3,13 +3,14 @@ import os
 import angr
 import logging
 
+from claripy.backends.backend_smtlib_solvers import z3str_popen  # pylint:disable=unused-import
 
 self_dir = os.path.dirname(os.path.realpath(__file__))
 
 
 def test_java_simple3():
     binary_path = os.path.join(self_dir, "simple3.jar")
-    project = angr.Project(binary_path)
+    project = angr.Project(binary_path, load_options={"auto_load_libs": False})
     entry = project.factory.entry_state()
     simgr = project.factory.simgr(entry)
     simgr.explore()

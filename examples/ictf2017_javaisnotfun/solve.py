@@ -7,6 +7,7 @@ from angr.procedures.java import JavaSimProcedure
 from archinfo.arch_soot import SootMethodDescriptor, SootAddressDescriptor
 from  angr.storage.file import Flags
 import claripy
+from claripy.backends.backend_smtlib_solvers import z3str_popen  # pylint:disable=unused-import
 
 
 # This is a solution for the challenge javaisnotfun at ictf2017
@@ -114,7 +115,6 @@ def solve_given_numbers_angr(numbers):
     binary_path = os.path.join(self_dir, "bin/service.jar")
     jni_options = {'jni_libs': ['libnotfun.so']}
     project = angr.Project(binary_path, main_opts=jni_options)
-
     # hooks
     project.hook(SootMethodDescriptor(class_name="java.util.Random", name="nextInt", params=('int',)).address(), Random_nextInt())
     project.hook(SootMethodDescriptor(class_name="java.lang.Integer", name="valueOf", params=('int',)).address(), Dummy_valueOf())

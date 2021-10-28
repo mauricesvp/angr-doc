@@ -55,7 +55,13 @@ Document your code. Every _class definition_ and _public function definition_ sh
 * What are the type and the meaning of the parameters.
 * What it returns.
 
-We use [Sphinx](http://www.sphinx-doc.org/en/stable/) to generate the API documentation. Sphinx supports special [keywords](http://www.sphinx-doc.org/en/stable/domains.html#info-field-lists) to document function parameters, return values, return types etc.
+Class docstrings will be enforced by our linter.
+Do _not_ under any circumstances write a docstring which doesn't provide more information than the name of the class.
+What you should try to write is a description of the environment that the class should be used in.
+If the class should not be instantiated by end-users, write a description of where it will be generated and how instances can be acquired.
+If the class should be instanciated by end-users, explain what kind of object it represents at its core, what behavior is expected of its parameters, and how to safely manage objects of its type.
+
+We use [Sphinx](http://www.sphinx-doc.org/en/stable/) to generate the API documentation. Sphinx supports docstrings written in [ReStructured Text](http://openalea.gforge.inria.fr/doc/openalea/doc/_build/html/source/sphinx/rest_syntax.html#auto-document-your-python-code) with special [keywords](http://www.sphinx-doc.org/en/stable/domains.html#info-field-lists) to document function and class parameters, return values, return types, members, etc.
 
 Here is an example of function documentation. Ideally the parameter descriptions should be aligned vertically to make the docstrings as readable as possible.
 
@@ -74,6 +80,8 @@ def prune(self, filter_func=None, from_stash=None, to_stash=None):
 
 This format has the advantage that the function parameters are clearly identified in the generated documentation. However, it can make the documentation repetitive, in some cases a textual description can be more readable. Pick the format you feel is more appropriate for the functions or classes you are documenting.
 
+
+
 ```python
  def read_bytes(self, addr, n):
     """
@@ -85,7 +93,7 @@ This format has the advantage that the function parameters are clearly identifie
 
 If you're pushing a new feature and it is not accompanied by a test case it **will be broken** in very short order. Please write test cases for your stuff.
 
-We have an internal CI server to run tests to check functionality and regression on each commit. In order to have our server run your tests, write your tests in a format acceptable to [nosetests](https://nose.readthedocs.org/en/latest/) in a file matching `test_*.py` in the `tests` folder of the appropriate repository. A test file can contain any number of functions of the form `def test_*():`. Each of them will be run as a test, and if they raise any exceptions or assertions, the test fails. Use the `nose.tools.assert_*` functions for better error messages.
+We have an internal CI server to run tests to check functionality and regression on each commit. In order to have our server run your tests, write your tests in a format acceptable to [nosetests](https://nose.readthedocs.org/en/latest/) in a file matching `test_*.py` in the `tests` folder of the appropriate repository. A test file can contain any number of functions of the form `def test_*():` or classes of the form `class Test*(unittest.TestCase):`. Each of them will be run as a test, and if they raise any exceptions or assertions, the test fails. Do not use the `nose.tools.assert_*` functions, as we are presently trying to migrate to `nose2`. Use `assert` statements with descriptive messages or the `unittest.TestCase` assert methods.
 
 Look at the existing tests for examples. Many of them use an alternate format where the `test_*` function is actually a generator that yields tuples of functions to call and their arguments, for easy parametrization of tests. 
 
