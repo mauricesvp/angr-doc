@@ -20,7 +20,7 @@
 | Copy propagation |
 | Dead assignment elimination |
 | Peephole optimizations      |
-| Simplifying AIL function    | Simplify the entire AIL function. | Assignment expression folding, unifying local variables, call expression folding, reaching definition analysis 
+| Simplifying AIL function    | Simplify the entire AIL function. | Assignment expression folding, unifying local variables, call expression folding, reaching definition analysis
 | Assignment expression folding | Eliminate variables that are assigned to once and used once. | Copy propagation
 | Unifying local variables   | Find local variables that are always equivalent and eliminate redundant copies. | Copy propagation
 | Call expression folding    | Fold call expressions into the variable where its return value is stored. | Copy propagation
@@ -30,4 +30,4 @@
 | Simplification passes      | TODO
 | Region identification      | Identify single-entry, single-exit regions. |
 | Structure analysis         | Structure each identified region to create high-level control flow structures. |
-| Code generation            | 
+| Code generation            |

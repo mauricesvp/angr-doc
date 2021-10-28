@@ -28,7 +28,7 @@ def main():
         # Source: https://www.juniper.net/documentation/en_US/idp5.1/topics/reference/general/intrusion-detection-prevention-custom-attack-object-extended-ascii.html
         # Thanks to Tom Ravenscroft (@tomravenscroft) for showing me how to restrict to printable characters.
 
-    # We're told that every flag is formatted as "CTF{...}", so we might as well use that information to save processing time. 
+    # We're told that every flag is formatted as "CTF{...}", so we might as well use that information to save processing time.
     initial_state.add_constraints(argv1.chop(8)[0] == 'C')
     initial_state.add_constraints(argv1.chop(8)[1] == 'T')
     initial_state.add_constraints(argv1.chop(8)[2] == 'F')

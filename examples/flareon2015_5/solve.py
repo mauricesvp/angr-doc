@@ -47,7 +47,7 @@ def main():
     p.hook(0x401259, hook_duplicate_pw_buf, length=0)
     p.hook(0x4011E7, hook_use_dup_pw_buf, length=0)
 
-    # To avoid calling imports (HeapAlloc), retrofit part of the stack as 
+    # To avoid calling imports (HeapAlloc), retrofit part of the stack as
     # temporary buffer to hold symbolic copy of the password
     p.hook(0x4011D6, hook_heapalloc, length=5)
 

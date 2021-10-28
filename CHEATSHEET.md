@@ -223,7 +223,7 @@ Read Pointer to Pointer from Frame:
 poi1 = new_state.solver.eval(new_state.regs.rbp)-0x10
 poi1 = new_state.mem[poi1].long.concrete
 poi1 += 0x8
-ptr1 = new_state.mem[poi1].long.concrete 
+ptr1 = new_state.mem[poi1].long.concrete
 ```
 
 Read from State:

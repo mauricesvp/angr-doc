@@ -52,7 +52,7 @@ To resolve this, you can use `instance.project.am_none` - this will be True when
 One interesting feature of the ObjectContainer is that they can nest.
 If you have a container which contains a container which contains an object, any events sent to the inner container will also be sent to subscribers to the outer container.
 This allows patterns such as the list of SimStates actually containing a list of ObjectContainers which contain states, and the "current state" container actually contains one of these containers.
-The result of this is that UI elements can either subscribe to the current state, no matter 
+The result of this is that UI elements can either subscribe to the current state, no matter
 
 A full list of standard ObjectContainers that can be found in the [instance `__init__` method](https://github.com/angr/angr-management/blob/master/angrmanagement/data/instance.py).
 There are more containers floating around for synchronizing on non-global elements - for example, the current state of the disassembly view is synchronized through its InfoDock object.

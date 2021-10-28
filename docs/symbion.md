@@ -20,7 +20,7 @@ pip install .
 ```
 
 Now you’re ready to go!
-##Gists 
+##Gists
 Once you have created an entry state, instantiated a `SimulationManager`, and specified a list of *stop_points* using the `Symbion` interface we are going to resume the concrete process execution.
 ```python
 # Instantiating the ConcreteTarget
@@ -36,13 +36,13 @@ entry_state = p.factory.entry_state()
 
 # Forget about these options as for now, will explain later.
 entry_state.options.add(angr.options.SYMBION_SYNC_CLE)
-entry_state.options.add(angr.options.SYMBION_KEEP_STUBS_ON_SYNC)      
+entry_state.options.add(angr.options.SYMBION_KEEP_STUBS_ON_SYNC)
 
-# Use Symbion!                                
+# Use Symbion!
 simgr.use_technique(angr.exploration_techniques.Symbion(find=[0x85b853])
 ```
-When one of your stop_points (effectively a breakpoint) is hit, we give control to `angr`. 
-A new plugin called *concrete* is in charge of synchronizing the concrete state of the program inside a new `SimState`. 
+When one of your stop_points (effectively a breakpoint) is hit, we give control to `angr`.
+A new plugin called *concrete* is in charge of synchronizing the concrete state of the program inside a new `SimState`.
 
 Roughly, synchronization does the following:
 * All the registers' values (NOT marked with concrete=False in the respective arch file in archinfo) are copied inside the new SimState.

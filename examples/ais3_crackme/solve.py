@@ -18,7 +18,7 @@ def main():
     argv1 = claripy.BVS("argv1",100*8) #since we do not the length now, we just put 100 bytes
     initial_state = project.factory.entry_state(args=["./crackme1",argv1])
 
-    #create a path group using the created initial state 
+    #create a path group using the created initial state
     sm = project.factory.simulation_manager(initial_state)
 
     #symbolically execute the program until we reach the wanted value of the instruction pointer

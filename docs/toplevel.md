@@ -222,13 +222,13 @@ angr comes pre-packaged with several built-in analyses that you can use to extra
 
 ```
 >>> proj.analyses.            # Press TAB here in ipython to get an autocomplete-listing of everything:
- proj.analyses.BackwardSlice        proj.analyses.CongruencyCheck      proj.analyses.reload_analyses       
- proj.analyses.BinaryOptimizer      proj.analyses.DDG                  proj.analyses.StaticHooker          
- proj.analyses.BinDiff              proj.analyses.DFG                  proj.analyses.VariableRecovery      
- proj.analyses.BoyScout             proj.analyses.Disassembly          proj.analyses.VariableRecoveryFast  
- proj.analyses.CDG                  proj.analyses.GirlScout            proj.analyses.Veritesting           
- proj.analyses.CFG                  proj.analyses.Identifier           proj.analyses.VFG                   
- proj.analyses.CFGEmulated          proj.analyses.LoopFinder           proj.analyses.VSA_DDG               
+ proj.analyses.BackwardSlice        proj.analyses.CongruencyCheck      proj.analyses.reload_analyses
+ proj.analyses.BinaryOptimizer      proj.analyses.DDG                  proj.analyses.StaticHooker
+ proj.analyses.BinDiff              proj.analyses.DFG                  proj.analyses.VariableRecovery
+ proj.analyses.BoyScout             proj.analyses.Disassembly          proj.analyses.VariableRecoveryFast
+ proj.analyses.CDG                  proj.analyses.GirlScout            proj.analyses.Veritesting
+ proj.analyses.CFG                  proj.analyses.Identifier           proj.analyses.VFG
+ proj.analyses.CFGEmulated          proj.analyses.LoopFinder           proj.analyses.VSA_DDG
  proj.analyses.CFGFast              proj.analyses.Reassembler
 ```
 

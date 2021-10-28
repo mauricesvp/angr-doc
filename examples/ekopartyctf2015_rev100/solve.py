@@ -1,9 +1,9 @@
 
 # This challenge is super big, and it's impossible to solve with IDA alone.
-# However, we are sure that most of the code is just garbage - you can't have 
-# a 100-point challenge with that much non-garbage code. Therefore the idea is 
-# to use GDB along with hardware breakpoints to find out where each byte is 
-# verified, and then run that single part of code inside angr to solve the 
+# However, we are sure that most of the code is just garbage - you can't have
+# a 100-point challenge with that much non-garbage code. Therefore the idea is
+# to use GDB along with hardware breakpoints to find out where each byte is
+# verified, and then run that single part of code inside angr to solve the
 # password.
 
 from angr.procedures.stubs.UserHook import UserHook

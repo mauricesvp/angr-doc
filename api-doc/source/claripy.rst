@@ -24,7 +24,7 @@ Or using its components in angr::
     rax_new = path_new.state.regs.rax
     path_new.state.se.add(rax_new == 1337)
     print(path_new.state.se.eval(rax_start, 1)[0])
- 
+
 
 AST
 ---
@@ -56,7 +56,7 @@ Backends
 .. automodule:: claripy.backends.backend_smtlib_solvers.abc_popen
 .. automodule:: claripy.backends.backend_smtlib_solvers
 .. automodule:: claripy.backends.backend_smtlib
- 
+
 
 Frontends
 ---------

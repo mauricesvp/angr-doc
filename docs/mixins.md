@@ -8,7 +8,7 @@ In brief, the mixin pattern is where python's subclassing features is used not t
 class Base:
     def add_one(self, v):
         return v + 1
-        
+
 class StringsMixin(Base):
     def add_one(self, v):
         coerce = type(v) is str
@@ -18,14 +18,14 @@ class StringsMixin(Base):
         if coerce:
             result = str(result)
         return result
-        
+
 class ArraysMixin(Base):
     def add_one(self, v):
         if type(v) is list:
             return [super().add_one(v_x) for v_x in v]
         else:
             return super().add_one(v)
-        
+
 class FinalClass(ArraysMixin, StringsMixin, Base):
     pass
 ```

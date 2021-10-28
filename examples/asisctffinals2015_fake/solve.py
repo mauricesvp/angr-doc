@@ -30,9 +30,9 @@ def main():
     # And it ends with a '}'
     found.add_constraints(flag.get_byte(32+5) == ord('}'))
 
-    # In fact, putting less constraints (for example, only constraining the first 
-    # several characters) is enough to get the final flag, and Z3 runs much faster 
-    # if there are less constraints. I added all constraints just to stay on the 
+    # In fact, putting less constraints (for example, only constraining the first
+    # several characters) is enough to get the final flag, and Z3 runs much faster
+    # if there are less constraints. I added all constraints just to stay on the
     # safe side.
 
     flag_str = found.solver.eval(flag, cast_to=bytes)

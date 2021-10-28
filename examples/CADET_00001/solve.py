@@ -22,7 +22,7 @@ def main():
     #an "unconstrained" state: the symbolic executor does not know how to proceed
     #since the instruction pointer can assume any value
 
-    #by default angr discards unconstrained paths, so we need to specify the  
+    #by default angr discards unconstrained paths, so we need to specify the
     #save_unconstrained option
     print("finding the buffer overflow...")
     sm = project.factory.simulation_manager(save_unconstrained=True)
@@ -42,7 +42,7 @@ def main():
     print("finding the easter egg...")
     sm = project.factory.simulation_manager(project.factory.entry_state())
 
-    #at this point we just ask angr to reach the basic block where the easter egg 
+    #at this point we just ask angr to reach the basic block where the easter egg
     #text is printed
     sm.explore(find=0x804833E)
     found = sm.found[0]

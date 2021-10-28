@@ -90,11 +90,11 @@ angr's default engine, the `UberEngine`, contains several mixins which provide t
 - `SootMixin` - executes java bytecode via the SOOT IR
 - `HeavyVEXMixin` - executes machine code via the VEX IR
 
-Each of these mixins is implemented to fill out the `SimSuccessors` object if they can handle the current state, otherwise they call `super()` to pass the job on to the next class in the stack. 
+Each of these mixins is implemented to fill out the `SimSuccessors` object if they can handle the current state, otherwise they call `super()` to pass the job on to the next class in the stack.
 
 ## Engine mixins
 
-`SimEngineFailure` handles error cases. 
+`SimEngineFailure` handles error cases.
 It is only used when the previous jumpkind is one of `Ijk_EmFail`, `Ijk_MapFail`, `Ijk_Sig*`, `Ijk_NoDecode` (but only if the address is not hooked), or `Ijk_Exit`.
 In the first four cases, its action is to raise an exception.
 In the last case, its action is to simply produce no successors.

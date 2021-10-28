@@ -21,7 +21,7 @@ Just make sure to call the superclass initializer!
 ...     def __init__(self, foo):
 ...         super(MyFirstPlugin, self).__init__()
 ...         self.foo = foo
-... 
+...
 ...     @angr.SimStatePlugin.memo
 ...     def copy(self, memo):
 ...         return MyFirstPlugin(self.foo)
@@ -95,7 +95,7 @@ This is such a common construction that we provide a utility to perform it autom
 The following code snippet is identical to the previous one:
 
 ```python
-self.myvar = claripy.ite_cases(zip(merge_conditions[1:], [o.myvar for o in others]), self.myvar) 
+self.myvar = claripy.ite_cases(zip(merge_conditions[1:], [o.myvar for o in others]), self.myvar)
 ```
 
 Keep in mind that like the rest of the top-level claripy functions, `ite_cases` and `If` are also available from `state.solver`, and these versions will perform SimActionObject unwrapping if applicable.

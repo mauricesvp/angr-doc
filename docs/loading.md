@@ -52,7 +52,7 @@ You can get the full list of objects that CLE has loaded with `loader.all_object
 [<ELF Object fauxware, maps [0x400000:0x60105f]>,
  <ELF Object libc-2.23.so, maps [0x1000000:0x13c999f]>,
  <ELF Object ld-2.23.so, maps [0x2000000:0x2227167]>]
- 
+
 # Here's the "externs object", which we use to provide addresses for unresolved imports and angr internals
 >>> proj.loader.extern_object
 <ExternObject Object cle##externs, maps [0x4000000:0x4008000]>
@@ -87,7 +87,7 @@ You can interact directly with these objects to extract metadata from them:
            <.interp | offset 0x238, vaddr 0x400238, size 0x1c>,
            <.note.ABI-tag | offset 0x254, vaddr 0x400254, size 0x20>,
             ...etc
-            
+
 # You can get an individual segment or section by an address it contains:
 >>> obj.find_segment_containing(obj.entry)
 <ELFSegment memsize=0xa74, filesize=0xa74, vaddr=0x400000, flags=0x5, offset=0x0>
@@ -167,7 +167,7 @@ True
 <Symbol "strcmp" in libc.so.6 at 0x1089cd0>
 ```
 
-The specific ways that the links between imports and exports should be registered in memory are handled by another notion called _relocations_. 
+The specific ways that the links between imports and exports should be registered in memory are handled by another notion called _relocations_.
 A relocation says, "when you match _\[import\]_ up with an export symbol, please write the export's address to _\[location\]_, formatted as _\[format\]_."
 We can see the full list of relocations for an object (as `Relocation` instances) as `obj.relocs`, or just a mapping from symbol name to Relocation as `obj.imports`.
 There is no corresponding list of export symbols.

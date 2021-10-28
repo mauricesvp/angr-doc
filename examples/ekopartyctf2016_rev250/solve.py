@@ -7,7 +7,7 @@ However, we don't have the library so need to find the correct input and input
 it over netcat. If it is incorrect, only 'Goodbye' is printed.
 
 Reversing shows that the program verifies the input character by character.]
-Because of the program's linear nature and reliance on verbose constraints, 
+Because of the program's linear nature and reliance on verbose constraints,
 angr is perfect for solving this challenge quickly. On a virtual machine
 with one core and 4 GB of RAM, it took ~26 seconds to solve.
 

@@ -16,7 +16,7 @@ import claripy
 def main():
     proj = angr.Project('./fairlight', load_options={"auto_load_libs": False})
     argv1 = claripy.BVS("argv1", 0xE * 8)
-    initial_state = proj.factory.entry_state(args=["./fairlight", argv1]) 
+    initial_state = proj.factory.entry_state(args=["./fairlight", argv1])
 
     sm = proj.factory.simulation_manager(initial_state)
     sm.explore(find=0x4018f7, avoid=0x4018f9)

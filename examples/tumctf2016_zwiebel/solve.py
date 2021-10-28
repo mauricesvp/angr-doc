@@ -37,7 +37,7 @@ if __name__ == "__main__":
     print(main())
 
 # Here is the output (after 2 hours and 31 minutes on my machine running Pypy):
-# 
+#
 # ipdb> print(sm)
 # <PathGroup with 20 errored, 21 deadended>
 # ipdb> print(sm.deadended[-1])

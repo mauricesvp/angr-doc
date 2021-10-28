@@ -11,9 +11,9 @@ def main():
     license_name = "_a\nb\tc_"
 
     # This is the license file
-    # From analyzing the binary, we know that the license file should have five 
-    # lines in total, and each line has 6 characters. Not setting file content 
-    # may also work, but in that case, angr will produce many more paths, and we 
+    # From analyzing the binary, we know that the license file should have five
+    # lines in total, and each line has 6 characters. Not setting file content
+    # may also work, but in that case, angr will produce many more paths, and we
     # will spent much more time in path trimming.
 
     bytestring = None
@@ -42,7 +42,7 @@ def main():
     found = simgr.found[0]
     rsp = found.regs.rsp
     flag_addr = rsp + 0x278 - 0xd8 # Ripped from IDA
-    # Perform an inline call to strlen() in order to determine the length of the 
+    # Perform an inline call to strlen() in order to determine the length of the
     # flag
     FAKE_ADDR = 0x100000
     strlen = lambda state, arguments: \

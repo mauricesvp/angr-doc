@@ -114,12 +114,12 @@ You can customize the state through several arguments to these constructors:
 
 - If you'd like to have `argc` be symbolic, you can pass a symbolic bitvector as `argc` to the `entry_state` and `full_init_state` constructors.
   Be careful, though: if you do this, you should also add a constraint to the resulting state that your value for argc cannot be larger than the number of args you passed into `args`.
-  
+
 - To use the call state, you should call it with `.call_state(addr, arg1, arg2, ...)`, where `addr` is the address of the function you want to call and `argN` is the Nth argument to that function, either as a python integer, string, or array, or a bitvector.
   If you want to have memory allocated and actually pass in a pointer to an object, you should wrap it in an PointerWrapper, i.e. `angr.PointerWrapper("point to me!")`.
   The results of this API can be a little unpredictable, but we're working on it.
-  
-- To specify the calling convention used for a function with `call_state`, you can pass a [`SimCC` instance](http://angr.io/api-doc/angr.html#module-angr.calling_conventions) as the `cc` argument.    
+
+- To specify the calling convention used for a function with `call_state`, you can pass a [`SimCC` instance](http://angr.io/api-doc/angr.html#module-angr.calling_conventions) as the `cc` argument.
   We try to pick a sane default, but for special cases you will need to help angr out.
 
 There are several more options that can be used in any of these constructors! See the [docs on the `project.factory` object (an `AngrObjectFactory`)](http://angr.io/api-doc/angr.html#angr.factory.AngrObjectFactory) for more details.

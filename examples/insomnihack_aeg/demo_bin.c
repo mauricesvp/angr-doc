@@ -35,9 +35,9 @@ int main(void)
 
     printf("Component Name:\n");
     read(0, component_name, sizeof component_name);
-    
+
     printf("Initializing component...\n");
-    cmp = initialize_component(component_name);    
+    cmp = initialize_component(component_name);
 
     printf("Running component...\n");
     mprotect((void*)((long)&component_name & ~0xfff), 0x1000, PROT_READ | PROT_EXEC);

@@ -6,7 +6,7 @@ If you've found something that angr isn't able to solve and appears to be a bug,
 2. Give us a pull request with angr/binaries, with the binaries in question
 3. Give us a pull request for angr/angr, with testcases that trigger the binaries in `angr/tests/broken_x.py`, `angr/tests/broken_y.py`, etc
 
-Please try to follow the testcase format that we have \(so the code is in a test\_blah function\), that way we can very easily merge that and make the scripts run.  
+Please try to follow the testcase format that we have \(so the code is in a test\_blah function\), that way we can very easily merge that and make the scripts run.
 An example is:
 
 ```python
@@ -19,8 +19,8 @@ if __name__ == '__main__':
     test_some_broken_feature()
 ```
 
-This will _greatly_ help us recreate your bug and fix it faster.  
-The ideal situation is that, when the bug is fixed, your testcases passes \(i.e., the assert at the end does not raise an AssertionError\).  
+This will _greatly_ help us recreate your bug and fix it faster.
+The ideal situation is that, when the bug is fixed, your testcases passes \(i.e., the assert at the end does not raise an AssertionError\).
 Then, we can just fix the bug and rename `broken_x.py` to `test_x.py` and the testcase will run in our internal CI at every push, ensuring that we do not break this feature again.
 
 # Developing angr
@@ -95,7 +95,7 @@ If you're pushing a new feature and it is not accompanied by a test case it **wi
 
 We have an internal CI server to run tests to check functionality and regression on each commit. In order to have our server run your tests, write your tests in a format acceptable to [nosetests](https://nose.readthedocs.org/en/latest/) in a file matching `test_*.py` in the `tests` folder of the appropriate repository. A test file can contain any number of functions of the form `def test_*():` or classes of the form `class Test*(unittest.TestCase):`. Each of them will be run as a test, and if they raise any exceptions or assertions, the test fails. Do not use the `nose.tools.assert_*` functions, as we are presently trying to migrate to `nose2`. Use `assert` statements with descriptive messages or the `unittest.TestCase` assert methods.
 
-Look at the existing tests for examples. Many of them use an alternate format where the `test_*` function is actually a generator that yields tuples of functions to call and their arguments, for easy parametrization of tests. 
+Look at the existing tests for examples. Many of them use an alternate format where the `test_*` function is actually a generator that yields tuples of functions to call and their arguments, for easy parametrization of tests.
 
 Finally, do not add docstrings to your test functions.
 

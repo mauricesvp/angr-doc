@@ -43,7 +43,7 @@ Like any decent execution engine, angr supports breakpoints. This is pretty cool
 # add a breakpoint. This breakpoint will drop into ipdb right before a memory write happens.
 >>> s.inspect.b('mem_write')
 
-# on the other hand, we can have a breakpoint trigger right *after* a memory write happens. 
+# on the other hand, we can have a breakpoint trigger right *after* a memory write happens.
 # we can also have a callback function run instead of opening ipdb.
 >>> def debug_func(state):
 ...     print("State %s is about to do a memory write!")
@@ -174,9 +174,9 @@ That is some cool stuff!
 
 ### Caution about `mem_read` breakpoint
 
-The `mem_read` breakpoint gets triggered anytime there are memory reads by either the executing program or the binary analysis. If you are using breakpoint on `mem_read` and also using `state.mem` to load data from memory addresses, then know that the breakpoint will be fired as you are technically reading memory.  
+The `mem_read` breakpoint gets triggered anytime there are memory reads by either the executing program or the binary analysis. If you are using breakpoint on `mem_read` and also using `state.mem` to load data from memory addresses, then know that the breakpoint will be fired as you are technically reading memory.
 
-So if you want to load data from memory and not trigger any `mem_read` breakpoint you have had set up, then use `state.memory.load` with the keyword arguments `disable_actions=True` and `inspect=False`. 
+So if you want to load data from memory and not trigger any `mem_read` breakpoint you have had set up, then use `state.memory.load` with the keyword arguments `disable_actions=True` and `inspect=False`.
 
 This is also true for `state.find` and you can use the same keyword arguments to prevent `mem_read` breakpoints from firing.
 
